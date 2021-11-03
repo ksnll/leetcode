@@ -32,5 +32,3 @@ function sortedSquares(nums: number[]): number[] {
 
   return sorted;
 }
-
-console.log(sortedSquares([-4, -1, 0, 3, 10]));
