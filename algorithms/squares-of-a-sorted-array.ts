@@ -9,7 +9,6 @@ function sortedSquares(nums: number[]): number[] {
       break;
     }
   }
-  console.log(firstPositiveIndex);
   const negatives: number[] = nums
     .slice(0, firstPositiveIndex)
     .reverse()
