@@ -10,3 +10,9 @@ name = "two-sum"
 [[bin]]
 path = "climbing-stairs.rs"
 name = "climbing-stairs"
+
+[[bin]]
+path = "merge-sorted-array.rs"
+name = "merge-sorted-array"
+
+
