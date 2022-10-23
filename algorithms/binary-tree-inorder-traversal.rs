@@ -35,11 +35,12 @@ impl Solution {
     }
 }
 fn main() {
-    let mut tree = TreeNode::new(1);
-    tree.right = Some(Rc::new(RefCell::new(TreeNode::new(2))));
-    tree.right.unwrap().borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
-    println!(
-        "{:?}",
-        Solution::inorder_traversal(Some(Rc::new(RefCell::new(tree))))
-    );
+    let tree = Some(Rc::new(RefCell::new(TreeNode::new(1))));
+    if let Some(ref tree) = tree {
+        tree.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(2))));
+        if let Some(ref right) = tree.borrow().right {
+            right.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
+        }
+    }
+    println!("{:?}", Solution::inorder_traversal(tree));
 }
