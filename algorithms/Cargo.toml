@@ -15,4 +15,8 @@ name = "climbing-stairs"
 path = "merge-sorted-array.rs"
 name = "merge-sorted-array"
 
+[[bin]]
+path = "binary-tree-inorder-traversal.rs"
+name = "binary-tree-inorder-traversal"
+
 
