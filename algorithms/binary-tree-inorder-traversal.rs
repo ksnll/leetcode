@@ -37,7 +37,7 @@ impl Solution {
 fn main() {
     let mut tree = TreeNode::new(1);
     tree.right = Some(Rc::new(RefCell::new(TreeNode::new(2))));
-    tree.right.unwrap().borrow().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
+    tree.right.unwrap().borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(3))));
     println!(
         "{:?}",
         Solution::inorder_traversal(Some(Rc::new(RefCell::new(tree))))
