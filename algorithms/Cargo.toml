@@ -20,3 +20,8 @@ path = "binary-tree-inorder-traversal.rs"
 name = "binary-tree-inorder-traversal"
 
 
+[[bin]]
+path = "symmetric-tree.rs"
+name = "symmetric-tree"
+
+
