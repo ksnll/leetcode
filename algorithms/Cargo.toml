@@ -24,4 +24,8 @@ name = "binary-tree-inorder-traversal"
 path = "symmetric-tree.rs"
 name = "symmetric-tree"
 
+[[bin]]
+path = "maximum-depth-of-binary-tree.rs"
+name = "maximum-depth-of-binary-tree"
+
 
