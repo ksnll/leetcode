@@ -10,54 +10,45 @@ pub struct TreeNode {
 
 impl TreeNode {
     #[inline]
-    pub fn new(val: i32) -> Self {
+    pub fn new<MaybeTreeNode>(val: i32, left: MaybeTreeNode, right: MaybeTreeNode) -> Self
+    where
+        MaybeTreeNode: Into<Option<TreeNode>>,
+    {
         TreeNode {
             val,
-            left: None,
-            right: None,
+            left: left.into().map(|l| (Rc::new(RefCell::new(l)))),
+            right: right.into().map(|r| (Rc::new(RefCell::new(r)))),
         }
     }
 }
 struct Solution;
 
 impl Solution {
-    pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    pub fn max_depth(root: &TreeNode) -> i32 {
         let mut max_depth = 0;
-        fn traverse_helper(
-            node: Option<&Rc<RefCell<TreeNode>>>,
-            current_depth: i32,
-            max_depth: &mut i32,
-        ) {
-            if let Some(node) = node {
-                *max_depth = i32::max(*max_depth, current_depth + 1);
-                traverse_helper(node.borrow().left.as_ref(), current_depth + 1, max_depth);
-                traverse_helper(node.borrow().right.as_ref(), current_depth + 1, max_depth);
+        fn traverse_helper(node: &TreeNode, current_depth: i32, max_depth: &mut i32) {
+            *max_depth = i32::max(*max_depth, current_depth + 1);
+            if let Some(l) = &node.left {
+                traverse_helper(&l.borrow(), current_depth + 1, max_depth);
+            }
+            if let Some(r) = &node.right {
+                traverse_helper(&r.borrow(), current_depth + 1, max_depth);
             }
         }
-        traverse_helper(root.as_ref(), 0, &mut max_depth);
+        traverse_helper(root, 0, &mut max_depth);
         max_depth
     }
 }
 fn main() {
-    let tree = Some(Rc::new(RefCell::new(TreeNode::new(1))));
-    tree.as_ref().unwrap().borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(9))));
-    tree.as_ref().unwrap().borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(20))));
-    tree.as_ref()
-        .unwrap()
-        .borrow()
-        .right
-        .as_ref()
-        .unwrap()
-        .borrow_mut()
-        .left = Some(Rc::new(RefCell::new(TreeNode::new(20))));
-    tree.as_ref()
-        .unwrap()
-        .borrow()
-        .right
-        .as_ref()
-        .unwrap()
-        .borrow_mut()
-        .right = Some(Rc::new(RefCell::new(TreeNode::new(7))));
+    let tree = TreeNode::new(
+        1,
+        TreeNode::new(9, None, None),
+        TreeNode::new(
+            20,
+            TreeNode::new(20, None, None),
+            TreeNode::new(7, None, None),
+        ),
+    );
 
-    println!("{:?}", Solution::max_depth(tree));
+    println!("{:?}", Solution::max_depth(&tree));
 }
