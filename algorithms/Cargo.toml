@@ -32,4 +32,8 @@ name = "maximum-depth-of-binary-tree"
 path = "convert-sorted-array-to-binary-search-tree.rs"
 name = "convert-sorted-array-to-binary-search-tree"
 
+[[bin]]
+path = "pascal-triangle.rs"
+name = "pascal-triangle"
+
 
