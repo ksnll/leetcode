@@ -28,4 +28,8 @@ name = "symmetric-tree"
 path = "maximum-depth-of-binary-tree.rs"
 name = "maximum-depth-of-binary-tree"
 
+[[bin]]
+path = "convert-sorted-array-to-binary-search-tree.rs"
+name = "convert-sorted-array-to-binary-search-tree"
+
 
