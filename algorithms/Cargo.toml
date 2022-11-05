@@ -49,3 +49,7 @@ name = "valid-palindrome"
 path = "sqrtx.rs"
 name = "sqrtx"
 
+[[bin]]
+path = "single-number.rs"
+name = "single-number"
+
