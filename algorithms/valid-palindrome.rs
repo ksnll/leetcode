@@ -6,13 +6,13 @@ impl Solution {
             .chars()
             .rev()
             .collect::<String>()
-            .replace(|c: char| !c.is_alphabetic(), ""));
-        s.to_lowercase().replace(|c: char| !c.is_alphabetic(), "")
+            .replace(|c: char| !c.is_alphanumeric(), ""));
+        s.to_lowercase().replace(|c: char| !c.is_alphanumeric(), "")
             == s.to_lowercase()
                 .chars()
                 .rev()
                 .collect::<String>()
-                .replace(|c: char| !c.is_alphabetic(), "")
+                .replace(|c: char| !c.is_alphanumeric(), "")
     }
 }
 
