@@ -37,3 +37,7 @@ path = "pascal-triangle.rs"
 name = "pascal-triangle"
 
 
+[[bin]]
+path = "best-time-to-buy-and-sell-stock.rs"
+name = "best-time-to-buy-and-sell-stock"
+
