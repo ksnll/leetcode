@@ -41,3 +41,7 @@ name = "pascal-triangle"
 path = "best-time-to-buy-and-sell-stock.rs"
 name = "best-time-to-buy-and-sell-stock"
 
+[[bin]]
+path = "valid-palindrome.rs"
+name = "valid-palindrome"
+
