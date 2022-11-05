@@ -45,3 +45,7 @@ name = "best-time-to-buy-and-sell-stock"
 path = "valid-palindrome.rs"
 name = "valid-palindrome"
 
+[[bin]]
+path = "sqrtx.rs"
+name = "sqrtx"
+
