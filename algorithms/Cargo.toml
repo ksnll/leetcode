@@ -57,3 +57,7 @@ name = "single-number"
 path = "binary-tree.rs"
 name = "binary-tree"
 
+[lib]
+path = "majority-element.rs"
+name = "majority_element"
+
