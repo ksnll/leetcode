@@ -53,3 +53,7 @@ name = "sqrtx"
 path = "single-number.rs"
 name = "single-number"
 
+[[bin]]
+path = "binary-tree.rs"
+name = "binary-tree"
+
